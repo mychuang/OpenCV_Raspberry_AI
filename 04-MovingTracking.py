@@ -40,7 +40,7 @@ while(1):
 
         # b100 & b101 = b100
         bitwiseAnd = cv2.bitwise_and(frame, Circle)
-        mask = cv2.cvtColor(bitwiseAnd , cv2.COLOR_BGR2GRAY)
+        mask = cv2.cvtColor(bitwiseAnd, cv2.COLOR_BGR2GRAY)
         cv2.imshow("AND", mask)
 
         # ==== Plot the contours ====
