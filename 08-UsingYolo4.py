@@ -16,5 +16,11 @@ yolo.load_weights("./YoloV4Dataset/yolov4-tiny.weights", weights_type="yolo")
 yolo.summary(summary_type="yolo")
 yolo.summary()
 
-yolo.inference(media_path="./img/2.jpg")
+#yolo.inference(media_path="./img/2.jpg")
+#yolo.inference(yolo.inference(media_path="./img/LumensNewer.mov", is_image=False))
+yolo.inference(
+    "./img/LumensNewer.mov",
+    is_image = False,
+    cv_frame_size=(320, 240)
+)
 
