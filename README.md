@@ -30,10 +30,3 @@ All of the AP using situation can see the 0X.png
 ## 07-OCRTranform.py
 - 中文文字識別(OCR)</p>
 <img src="./07.png" width="300px" />
-
-## 08-UsingYolo4.py
-- 簡單使用YoloV4 範例
-- tensorflow: 2.8.0
-- opencv: 4.5.4</p>
-<img src="./08.png" width="300px" />
-<img src="./0802.png" width="300px" />
