@@ -30,3 +30,7 @@ All of the AP using situation can see the 0X.png
 ## 07-OCRTranform.py
 - 中文文字識別(OCR)</p>
 <img src="./07.png" width="300px" />
+
+## 08-YoloCamera.py
+- yolo 搭配 ip camera，並只會出person 類別</p>
+<img src="./08.png" width="300px" />
