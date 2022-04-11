@@ -75,6 +75,10 @@ cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
+# 降frame rate 所需的變數
+countMax = 20
+count = 19
+
 while cap.isOpened():
     try:
         is_success, frame = cap.read()
@@ -83,14 +87,15 @@ while cap.isOpened():
     if not is_success:
         break
 
-    # yolo讀取RGB三通道
-    #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    # 降 frame Rate
+    count = count + 1
+    if(count == countMax):
+        bboxes = yolo.predict(frame, prob_thresh=0.25)
+        count = 0
 
-    bboxes = yolo.predict(frame, prob_thresh=0.25)
     image = draw_bbox(frame, bboxes)
+    # yolo.draw_bboxes() 可繪製所有類別之物件
     #image = yolo.draw_bboxes(frame, bboxes)
-
-    #frame = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
     cv2.imshow("result", image)
 
