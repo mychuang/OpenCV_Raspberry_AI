@@ -1,0 +1,5 @@
+classes = 3
+train = /d/python/OpenCV/OpenCV-Beginner/YoloTraining/cfg/train.txt
+valid = /d/python/OpenCV/OpenCV-Beginner/YoloTraining/cfg/val.txt
+names = /d/python/OpenCV/OpenCV-Beginner/YoloTraining/cfg/mask.names
+backup = /d/python/OpenCV/OpenCV-Beginner/YoloTraining/cfg/weights/
