@@ -13,7 +13,7 @@ classId xCenter yCenter bndBoxW bndBoxH
 
 - check the spiltDataset.py, which can spilt to Trainning & Validation data set
 
-## Build Darknet in Windows
+## Build Darknet in Windows10 & windows11
 Refer: https://github.com/AlexeyAB/darknet#requirements-for-windows-linux-and-macos
 
 - clone (上面的網址) Github source code
@@ -50,4 +50,10 @@ Refer: https://github.com/AlexeyAB/darknet#requirements-for-windows-linux-and-ma
      sed -i '219s/10,14,  23,27,  37,58,  81,82,  135,169,  344,319/ 9, 16,  17, 29,  27, 45,  41, 69,  71,107, 138,154/'  [user folder]/OpenCV-Beginner/YoloTraining/cfg/yolov4-tiny-custom.cfg
      
      sed -i '268s/10,14,  23,27,  37,58,  81,82,  135,169,  344,319/ 9, 16,  17, 29,  27, 45,  41, 69,  71,107, 138,154/'  [user folder]/OpenCV-Beginner/YoloTraining/cfg/yolov4-tiny-custom.cfg
+  ```
+
+  ### Trainning
+  ```
+  .\darknet_no_gpu.exe detector train [user folder]\OpenCV-Beginner\YoloTraining\cfg\mask.data [user folder]\OpenCV-Beginner\YoloTraining\cfg\yolov4-tiny-custom.cfg [user folder]\OpenCV-Beginner\YoloTraining\cfg\yolov4-tiny.conv.29 -map 0,1
+
   ```
