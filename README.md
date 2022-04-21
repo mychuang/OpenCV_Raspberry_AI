@@ -34,3 +34,8 @@ All of the AP using situation can see the 0X.png
 ## 08-YoloCamera.py
 - yolo 搭配 ip camera，並只會出person 類別</p>
 <img src="./08.png" width="300px" />
+
+## 09-YoloCameraLight.py
+- 延續 08-YoloCamera.py，新增GPIO模組
+- 偵測到人，樹梅派外接 led 燈會亮 <p>
+<img src="./09.png" width="300px" />
