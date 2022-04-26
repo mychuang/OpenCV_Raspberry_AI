@@ -13,14 +13,14 @@ classId xCenter yCenter bndBoxW bndBoxH
 
 - check the spiltDataset.py, which can spilt to Trainning & Validation data set
 
-## Build Darknet in Windows10 & windows11
+## Build Darknet_no_gpu in Windows10
 Refer: https://github.com/AlexeyAB/darknet#requirements-for-windows-linux-and-macos
 
 - clone (上面的網址) Github source code
 - download OpenCV c++版本 (https://sourceforge.net/projects/opencvlibrary/)
 - 將下載好的 opencv 搬到 C槽，所以應該在c槽能看到 C:/opencv/build
 - 新增系統環境變量:OpenCV_DIR = C:/opencv/build (不會可以跳過)
-- 用VS2019打開 darknet/build/darknet/darknet_no_gpu.sln (因為我沒有GPU，有GPU可以選darknet.sln)
+- 用VS2019打開 darknet/build/darknet/darknet_no_gpu.sln
 - In VS2019 Configuration 改成Release x64
 - In VS2019 修改專案屬性(右邊欄，右鍵點選專案darknet_no_gpu)
 - In VS2019 property, select Linker/General/Additional Library Directories, 修改OpenCV路徑
@@ -55,5 +55,4 @@ Refer: https://github.com/AlexeyAB/darknet#requirements-for-windows-linux-and-ma
   ### Trainning
   ```
   .\darknet_no_gpu.exe detector train [user folder]\OpenCV-Beginner\YoloTraining\cfg\mask.data [user folder]\OpenCV-Beginner\YoloTraining\cfg\yolov4-tiny-custom.cfg [user folder]\OpenCV-Beginner\YoloTraining\cfg\yolov4-tiny.conv.29 -map 0,1
-
   ```
