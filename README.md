@@ -1,5 +1,7 @@
-# OpenCV-Beginner
-All of the AP using situation can see the 0X.png
+# OpenCV_Raspberry_AI
+此 Repository 紀錄OpenCV, 樹梅派與AI的小型專案，相關基礎範例可以參閱BasicSample資料夾<p>
+Yolotrainning 資料夾說明採用Yolo V4訓練Kaggle口罩資料的範例<p>
+其他小專案則如以下所列
 ## 01-WebCamWithQT.py
 - Here use MVC structure to get camera status and UI display
 - class MainWindow(QMainWindow, QObject): controll the UI and use cv2.VideoCapture(0) to connect camera
