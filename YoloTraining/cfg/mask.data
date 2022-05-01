@@ -1,5 +1,5 @@
 classes = 3
-train = D:/python/OpenCV/OpenCV-Beginner/YoloTraining/cfg/train.txt
-valid = D:/python/OpenCV/OpenCV-Beginner/YoloTraining/cfg/val.txt
-names = D:/python/OpenCV/OpenCV-Beginner/YoloTraining/cfg/mask.names
-backup = D:/python/OpenCV/OpenCV-Beginner/YoloTraining/cfg/weights/
+train = D:/Git/OpenCV_Raspberry_AI/YoloTraining/cfg/train.txt
+valid = D:/Git/OpenCV_Raspberry_AI/YoloTraining/cfg/val.txt
+names = D:/Git/OpenCV_Raspberry_AI/YoloTraining/cfg/mask.names
+backup = D:/Git/OpenCV_Raspberry_AI/YoloTraining/cfg/weights
