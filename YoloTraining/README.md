@@ -10,14 +10,14 @@ refer [BUILD.md](BUILD.md)
 - Set classId=0 is with_mask; classId=1 is without_mask; classId=2 is mask_weared_incorrect
 
 - The Yolo label txt was translated from VOC, the formate was shown below: <br>
-```
-classId xCenter yCenter bndBoxW bndBoxH
-```
+  ```
+  classId xCenter yCenter bndBoxW bndBoxH
+  ```
 - Check the translating code: voc2txt.py
 
 - check the spiltDataset.py, which can spilt to Trainning & Validation data set
 
-## YoloV4 setting
+## YoloV4 tiny setting
 - Check the folder cfg, there two file: mask.data & mask.names
   - mask.data: 記錄類別數量(classes)、train.txt 的位置(train)、val.txt 的位置(valid)、mask.names 檔案位置(names)、weights 輸出的路徑 (backup)
   - mask.names: 記錄各類別名稱，第一行名稱對應到 classId=0，以此類推
@@ -29,20 +29,35 @@ classId xCenter yCenter bndBoxW bndBoxH
   sed -i '263s/255/24/' /home/user/mask_detection/cfg/yolov4-tiny-obj.cfg
   sed -i '269s/80/3/' /home/user/mask_detection/cfg/yolov4-tiny-obj.cfg
   ```
-  - goto darknet\build\darknet\x64下，執行 darknet_no_gpu.exe
+- goto darknet\build\darknet\x64下，執行 darknet.exe (以使用GPU為例)
   ```
-   ./darknet_no_gpu.exe detector calc_anchors  [user folder]/OpenCV-Beginner/YoloTraining/cfg/mask.data -num_of_clusters 6 -width 416 -height 416 -showpau
+  ./darknet.exe detector calc_anchors  [user folder]/YoloTraining/cfg/mask.data -num_of_clusters 6 -width 416 -height 416 -showpau
 
-   # get result: anchors = 9, 16,  17, 29,  27, 45,  41, 69,  71,107, 138,154
+  # get result: anchors = 9, 16,  17, 29,  27, 45,  41, 69,  71,107, 138,154
   ``` 
-  - 修改 yolov4-tiny-custom.cfg 的 錨點
+- 修改 yolov4-tiny-custom.cfg 的 錨點
   ```
-     sed -i '219s/10,14,  23,27,  37,58,  81,82,  135,169,  344,319/ 9, 16,  17, 29,  27, 45,  41, 69,  71,107, 138,154/'  [user folder]/OpenCV-Beginner/YoloTraining/cfg/yolov4-tiny-custom.cfg
+   sed -i '219s/10,14,  23,27,  37,58,  81,82,  135,169,  344,319/ 9, 16,  17, 29,  27, 45,  41, 69,  71,107, 138,154/'  [user folder]/YoloTraining/cfg/yolov4-tiny-custom.cfg
      
-     sed -i '268s/10,14,  23,27,  37,58,  81,82,  135,169,  344,319/ 9, 16,  17, 29,  27, 45,  41, 69,  71,107, 138,154/'  [user folder]/OpenCV-Beginner/YoloTraining/cfg/yolov4-tiny-custom.cfg
+   sed -i '268s/10,14,  23,27,  37,58,  81,82,  135,169,  344,319/ 9, 16,  17, 29,  27, 45,  41, 69,  71,107, 138,154/'  [user folder]/YoloTraining/cfg/yolov4-tiny-custom.cfg
   ```
 
-  ### Trainning
+## Trainning
+- yolov4-tiny-custom.cfg 設定Batch size & iteration <br>
   ```
-  .\darknet_no_gpu.exe detector train [user folder]\OpenCV-Beginner\YoloTraining\cfg\mask.data [user folder]\OpenCV-Beginner\YoloTraining\cfg\yolov4-tiny-custom.cfg [user folder]\OpenCV-Beginner\YoloTraining\cfg\yolov4-tiny.conv.29 -map 0,1
+  # Training
+  batch=64
+  subdivisions=4
   ```
+- 訓練模型
+  ```
+  .\darknet.exe detector train [user folder]\YoloTraining\cfg\mask.data [user folder]\YoloTraining\cfg\yolov4-tiny-custom.cfg [user folder]\YoloTraining\cfg\yolov4-tiny.conv.29 -map -gpus
+  ```
+## Test
+
+  ```
+  .\darknet.exe detector test [user folder]\YoloTraining\cfg\mask.data [user folder]\YoloTraining\cfg\yolov4-tiny-custom.cfg [user folder]\YoloTraining\cfg\weights\yolov4-tiny-custom_final.weights [png]
+  ```
+  <img src="./nvdia_07.png" width="300px" />
+
+
