@@ -1,5 +1,9 @@
 # Yolo trainning mask png
 Refer: https://weirenxue.github.io/2021/06/10/YOLOv4_On_Face_Mask_Detection/
+
+## Build darknet
+refer [BUILD.md](BUILD.md)
+
 ## Data set
 - The data set were download https://www.kaggle.com/datasets/andrewmvd/face-mask-detection?resource=download
 
@@ -12,20 +16,6 @@ classId xCenter yCenter bndBoxW bndBoxH
 - Check the translating code: voc2txt.py
 
 - check the spiltDataset.py, which can spilt to Trainning & Validation data set
-
-## Build Darknet_no_gpu in Windows10
-Refer: https://github.com/AlexeyAB/darknet#requirements-for-windows-linux-and-macos
-
-- clone (上面的網址) Github source code
-- download OpenCV c++版本 (https://sourceforge.net/projects/opencvlibrary/)
-- 將下載好的 opencv 搬到 C槽，所以應該在c槽能看到 C:/opencv/build
-- 新增系統環境變量:OpenCV_DIR = C:/opencv/build (不會可以跳過)
-- 用VS2019打開 darknet/build/darknet/darknet_no_gpu.sln
-- In VS2019 Configuration 改成Release x64
-- In VS2019 修改專案屬性(右邊欄，右鍵點選專案darknet_no_gpu)
-- In VS2019 property, select Linker/General/Additional Library Directories, 修改OpenCV路徑
-- In VS2019 property, select C/C++/General/Additional Include Directories, 修改OpenCV路徑
-- 按確定，一樣右鍵專案選Build，應該就成功，成功可在darknet/build/darknet/x64 找到exe檔
 
 ## YoloV4 setting
 - Check the folder cfg, there two file: mask.data & mask.names
