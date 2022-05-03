@@ -45,12 +45,13 @@ SELECT * FROM Customers;
 | 2	         | Ana Trujillo Emparedados y helados | 05021 |
 | 3          | Antonio Moreno Taquería   | 05023 |
 
-當想取某個欄位的『不重複資料』時，可以使用**Count**
+當想取某個欄位的『不重複資料』時，可以使用 **Distinct**
 ```sql
 SELECT DISTINCT column1, column2, ... FROM table_name;
 ```
 <br>
-當想計算『滿足條件的資料有幾筆』時，可以使用**Distinct**
+
+當想計算『滿足條件的資料有幾筆』時，可以使用 **Count**
 
 ```sql
 SELECT COUNT(DISTINCT column1, column2, ...) FROM Customers;
