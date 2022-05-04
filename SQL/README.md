@@ -108,4 +108,90 @@ refer: https://www.w3schools.com/sql/sql_where.asp
 SELECT column1, column2, ... FROM table_name ORDER BY column1, column2, ... ASC|DESC;
  ```
 
-## chapter
+## Insert
+**INSERT INTO** statement is used to insert new records in a table:<br>
+**Insert into + 表格名稱 ( 欄位名稱 ) + Values( 資料值 )**<br>
+
+- Specify both the column names and the values to be inserted
+  ```sql
+  INSERT INTO table_name (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);
+   ```
+
+ - If you are adding values for all the columns of the table
+ 
+   ```sql
+   INSERT INTO table_name VALUES (value1, value2, value3, ...);
+   ```
+
+例如執行下列語句:
+```sql
+INSERT INTO Customers VALUES (Miller, 000000 );
+```
+| CustomerID | CustomerName | PostalCode    |
+|------------|--------------|---------------|
+| 1          | Alfreds Futterkiste	 | 12209 |
+| 2	         | Ana Trujillo Emparedados y helados | 05021 |
+| 3          | Antonio Moreno Taquería   | 05023 |
+| 4          | Miller   | 000000 |
+
+
+## NULL
+
+It is not possible to test for NULL values with comparison operators, such as =, <, or <>. <br>
+We will have to use the **IS NULL** and **IS NOT NULL** operators instead.
+
+- IS NULL
+  ```sql
+  SELECT column_names FROM table_name WHERE column_name IS NULL;
+  ```
+
+- IS NOT NULL
+  ```sql
+  SELECT column_names FROM table_name WHERE column_name IS NOT NULL;
+  ```
+
+## Update
+The **UPDATE** statement is used to modify the existing records in a table.<br>
+結構如下:<br>
+**Update + 表格名稱 + Set + 欄位名稱 = 值 + Where + 條件**
+```sql
+UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;
+```
+"Be careful when updating records. If you omit the **WHERE** clause, ALL records will be updated!"<br>
+
+例如執行下列語句:
+
+```sql
+UPDATE Customers SET PostalCode = 999999 WHERE CustomerName='Miller';
+```
+| CustomerID | CustomerName | PostalCode    |
+|------------|--------------|---------------|
+| 1          | Alfreds Futterkiste	 | 12209 |
+| 2	         | Ana Trujillo Emparedados y helados | 05021 |
+| 3          | Antonio Moreno Taquería   | 05023 |
+| 4          | Miller   | 999999 |
+
+## Delete
+The **DELETE** statement is used to delete existing records in a table.<br>
+**Delete + From + 表格名 + Where + 條件** <br>
+
+```sql
+DELETE FROM table_name WHERE condition;
+```
+
+例如執行下列語句:
+
+```sql
+DELETE FROM Customers WHERE CustomerName='Miller';
+```
+| CustomerID | CustomerName | PostalCode    |
+|------------|--------------|---------------|
+| 1          | Alfreds Futterkiste	 | 12209 |
+| 2	         | Ana Trujillo Emparedados y helados | 05021 |
+| 3          | Antonio Moreno Taquería   | 05023 |
+
+若要刪除整個表格，則執行:
+
+```sql
+DELETE FROM table_name;
+```
