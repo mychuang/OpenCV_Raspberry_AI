@@ -14,32 +14,7 @@ SELECT DISTINCT column1, column2, ... FROM table_name;
 ```sql
 SELECT COUNT(DISTINCT column1, column2, ...) FROM table_name;
 ```
-
-## WHERE : 條件判斷
-
-```sql
-SELECT * FROM table_name WHERE condition(s);
-```
 <br>
-
-### SQL AND, OR and NOT Operators
-- AND
-  ```sql
-  SELECT column1, column2, ... FROM table_name WHERE condition1 AND condition2 AND condition3 ...;
-  ```
-- OR
-  ```sql
-  SELECT column1, column2, ... FROM table_name WHERE condition1 OR condition2 OR condition3 ...;
-  ```
-- NOT
-  ```sql
-  SELECT column1, column2, ... FROM table_name WHERE NOT condition;
-  ```
-
-## ORDER BY: 排序
-```sql
-SELECT column1, column2, ... FROM table_name ORDER BY column1, column2, ... ASC|DESC;
- ```
 
 ## INSERT INTO: 新增
 
@@ -48,11 +23,62 @@ SELECT column1, column2, ... FROM table_name ORDER BY column1, column2, ... ASC|
   INSERT INTO table_name (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);
    ```
 
- - If you are adding values for all the columns of the table
+- If you are adding values for all the columns of the table
  
    ```sql
    INSERT INTO table_name VALUES (value1, value2, value3, ...);
    ```
+<br>
+
+## ORDER BY: 排序
+```sql
+SELECT column1, column2, ... FROM table_name ORDER BY column1, column2, ... ASC|DESC;
+```
+
+<br>
+
+## WHERE : 條件判斷
+
+```sql
+SELECT * FROM table_name WHERE condition(s);
+```
+
+### Operators
+ Refer: https://www.w3schools.com/sql/sql_like.asp
+
+- AND
+  ```sql
+  SELECT column1, column2, ... FROM table_name WHERE condition1 AND condition2 AND condition3 ...;
+  ```
+
+- OR
+  ```sql
+  SELECT column1, column2, ... FROM table_name WHERE condition1 OR condition2 OR condition3 ...;
+  ```
+
+- NOT
+  ```sql
+  SELECT column1, column2, ... FROM table_name WHERE NOT condition;
+  ```
+
+- (NOT) LIKE : (不)匹配
+   ```sql
+   SELECT column1, column2, ... FROM table_name WHERE columnN (NOT) LIKE pattern;
+   ```
+    
+- (NOT) IN : shorthand for multiple **OR**
+
+  ```sql
+  SELECT column_name(s) FROM table_name WHERE column_name IN (value1, value2, ...);
+  ```
+
+- (NOT) BETWEEN ... AND ... : selects values within a given range
+
+  ```sql
+  SELECT column_name(s) FROM table_name WHERE column_name BETWEEN value1 AND value2;
+  ```
+
+<br>
 
 ## NULL: 顯示缺失值
 
@@ -66,10 +92,14 @@ SELECT column1, column2, ... FROM table_name ORDER BY column1, column2, ... ASC|
   SELECT column_names FROM table_name WHERE column_name IS NOT NULL;
   ```
 
+<br>
+
 ## UPDATE ... SET: 修改
 ```sql
 UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;
 ```
+
+<br>
 
 ## DELETE FROM ... (WHERE): 刪除
 
@@ -82,6 +112,8 @@ DELETE FROM table_name WHERE condition(s);
 ```sql
 DELETE FROM table_name;
 ```
+
+<br>
 
 ## Function
 - MIN
@@ -104,17 +136,39 @@ DELETE FROM table_name;
    ```sql
    SELECT SUM(column_name) FROM table_name WHERE condition(s);
    ```
+  <br>
 
-## Operator
+## AS: 別名
+- Column 
+  ```sql
+  SELECT column_name AS alias_name FROM table_name;
+  ```
 
-- (NOT) LIKE : (不)匹配
-   ```sql
-   SELECT column1, column2, ... FROM table_name WHERE columnN (NOT) LIKE pattern;
-   ```
-   Pattern check: https://www.w3schools.com/sql/sql_like.asp
+- Table
+  ```sql
+  SELECT column_name(s) FROM table_name AS alias_name;
+  ```
+<br>
 
-   
+## JOIN: 關聯語句 
+Refer: https://ithelp.ithome.com.tw/articles/10207129
 
-    
+- INNER JOIN
+  ```sql
+  SELECT column_name(s) FROM table1 INNER JOIN table2 ON table1.column_name = table2.column_name;
+  ```
 
-- 1563
+- LEFT JOIN
+  ```sql
+  SELECT column_name(s) FROM table1 LEFT JOIN table2 ON table1.column_name = table2.column_name;
+  ```
+
+- RIGHT JOIN
+  ```sql
+  SELECT column_name(s) FROM table1 RIGHT JOIN table2 ON table1.column_name = table2.column_name;
+  ```
+
+- FULL JOIN
+  ```sql
+  SELECT column_name(s) FROM table1 FULL OUTER JOIN table2 ON table1.column_name = table2.column_name WHERE condition;
+  ```
