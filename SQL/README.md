@@ -172,3 +172,15 @@ Refer: https://ithelp.ithome.com.tw/articles/10207129
   ```sql
   SELECT column_name(s) FROM table1 FULL OUTER JOIN table2 ON table1.column_name = table2.column_name WHERE condition;
   ```
+
+## GROUP BY: groups rows that have the same values into summary rows
+
+  ```sql
+  SELECT column_name(s) FROM table_name WHERE condition GROUP BY column_name(s) ORDER BY column_name(s);
+  ```
+
+## HAVING: 條件判斷(搭配Function)
+
+  ```sql
+  SELECT column_name(s) FROM table_name WHERE condition GROUP BY column_name(s) HAVING condition ORDER BY column_name(s);
+  ```
