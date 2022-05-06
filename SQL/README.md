@@ -184,3 +184,52 @@ Refer: https://ithelp.ithome.com.tw/articles/10207129
   ```sql
   SELECT column_name(s) FROM table_name WHERE condition GROUP BY column_name(s) HAVING condition ORDER BY column_name(s);
   ```
+## CREATE: 創建資料庫與表單
+- DATABASE
+  ```sql
+  CREATE DATABASE data_base_name;
+  ```
+
+- table
+  ```sql
+  CREATE TABLE table_name(
+    column1 datatype constraint,
+    column2 datatype constraint,
+    column3 datatype constraint,
+    ...
+  );
+  ```
+  refer: https://www.w3schools.com/sql/sql_constraints.asp
+
+## DROP: 刪除資料庫與表單
+- DATABASE
+  ```sql
+  DROP DATABASE data_base_name;
+  ```
+
+- table
+  ```sql
+  DROP TABLE table_name(
+    column1 datatype constraint,
+    column2 datatype constraint,
+    column3 datatype constraint,
+    ...
+  );
+  ```
+
+## ALTER TABLE: 修改表格
+- ADD Column
+  ```sql
+  ALTER TABLE table_name ADD column_name datatype;
+  ```
+
+- DROP COLUMN
+  ```sql
+  ALTER TABLE table_name DROP COLUMN column_name;
+  ```
+
+- MODIFY COLUMN
+  ```sql
+  ALTER TABLE table_name MODIFY COLUMN column_name datatype;
+  ```
+
