@@ -1,6 +1,7 @@
 # SQL quick note
 
-## SELECT : 取出欄位
+## [SELECT](select.py) : 取出欄位
+
 ```sql
 SELECT column1, column2, ... FROM table_name;
 ```
@@ -16,7 +17,7 @@ SELECT COUNT(DISTINCT column1, column2, ...) FROM table_name;
 ```
 <br>
 
-## INSERT INTO: 新增
+## [INSERT INTO](insertRow.py): 新增
 
 - Specify both the column names and the values to be inserted
   ```sql
@@ -94,7 +95,7 @@ SELECT * FROM table_name WHERE condition(s);
 
 <br>
 
-## UPDATE ... SET: 修改
+## [UPDATE ... SET](delete_update.py): 修改
 ```sql
 UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;
 ```
@@ -172,19 +173,23 @@ Refer: https://ithelp.ithome.com.tw/articles/10207129
   ```sql
   SELECT column_name(s) FROM table1 FULL OUTER JOIN table2 ON table1.column_name = table2.column_name WHERE condition;
   ```
+<br>
 
 ## GROUP BY: groups rows that have the same values into summary rows
 
   ```sql
   SELECT column_name(s) FROM table_name WHERE condition GROUP BY column_name(s) ORDER BY column_name(s);
   ```
+<br>
 
 ## HAVING: 條件判斷(搭配Function)
 
   ```sql
   SELECT column_name(s) FROM table_name WHERE condition GROUP BY column_name(s) HAVING condition ORDER BY column_name(s);
   ```
-## CREATE: 創建資料庫與表單
+<br>
+
+## [CREATE](create.py): 創建資料庫與表單
 - DATABASE
   ```sql
   CREATE DATABASE data_base_name;
@@ -200,8 +205,9 @@ Refer: https://ithelp.ithome.com.tw/articles/10207129
   );
   ```
   refer: https://www.w3schools.com/sql/sql_constraints.asp
+<br>
 
-## DROP: 刪除資料庫與表單
+## [DROP](drop.py): 刪除資料庫與表單
 - DATABASE
   ```sql
   DROP DATABASE data_base_name;
@@ -216,6 +222,7 @@ Refer: https://ithelp.ithome.com.tw/articles/10207129
     ...
   );
   ```
+<br>
 
 ## ALTER TABLE: 修改表格
 - ADD Column
