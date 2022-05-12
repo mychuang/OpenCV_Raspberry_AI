@@ -10,8 +10,8 @@ Refer: https://allaboutdataanalysis.medium.com/%E9%9B%B6%E5%9F%BA%E7%A4%8E-sql-%
 -- 建立資料庫
 CREATE DATABASE Beginner;
 
--- 建立表單
--- 學生表單
+-- 建立學生表單
+-- 學號, 姓名, 性別, 身高, 鬍子, 膚色
 CREATE TABLE Beginner.Students(
     StudentId Varchar(10),
     Name varchar(200),
@@ -22,7 +22,8 @@ CREATE TABLE Beginner.Students(
     PRIMARY KEY(StudentId)
 );
 
--- 學生關係表單
+-- 建立學生關係表單
+-- 編號, 男生學號, 女生學號, 關係日期, 交往狀態, 分手日期
 Create Table Beginner.Relationships(
     RelationshipId Int,
     BoyId Varchar(10),
@@ -82,7 +83,7 @@ INSERT INTO Relationships(
 
 <br>
 
-## 查詢資料
+## 處理資料
 
 ### 查詢身高大於180cm的男同學
 
@@ -119,69 +120,72 @@ INNER JOIN Students S01 on Relationships.BoyId = S01.StudentId
 INNER JOIN Students S02 on Relationships.GirlId = S02.StudentId;
 ```
 <img src="./exam03.png" width="200px" />
+
 <br>
 
-
-### 
+### 更新"陳冠其"的鬍子狀態
 
 ```sql
-
+UPDATE Students SET Mustache = 'Yes' WHERE Name = '陳冠其'
 ```
 <br>
 
 
-### 
+### 更新'陳冠其' 與 '張白紙'關係狀態
 
 ```sql
+UPDATE Relationships SET CurrentActive = 'N', EndDate = '2008-04-01'
+WHERE BoyId = (
+    SELECT Students.StudentId FROM Students WHERE Students.Name = '陳冠其'
+)
+AND GirlId = (
+    SELECT Students.StudentId FROM Students WHERE Students.Name = '張白紙'
+)
 
 ```
 <br>
 
-
-### 
+### 刪除 與'張白紙'有關係的資料
 
 ```sql
+DELETE FROM Relationships WHERE GirlId = (
+    SELECT Students.StudentId FROM Students
+    WHERE Students.Name = '張白紙'
+)
+```
+<br>
 
+### 刪除 '張白紙'
+
+```sql
+DELETE FROM Students WHERE Name = '張白紙'
 ```
 <br>
 
 
-### 
+### 新增 '陳冠其' 與 '莫文莉'關係狀態
 
 ```sql
-
+INSERT INTO Relationships(
+    RelationshipId,
+    BoyId,
+    GirlId,
+    BeginDate,
+    CurrentActive,
+    EndDate
+) Values (1006, '001', '010', '2008-04-01', 'Y', null)
 ```
 <br>
 
-
-### 
-
-```sql
-
-```
-<br>
-
-
-### 
+### 查詢'莫文莉'的關係歷史
 
 ```sql
-
+SELECT Relationships.* FROM Relationships WHERE Relationships.GirlId = (
+    SELECT Students.StudentId FROM Students
+    WHERE Students.Name = '莫文莉'
+)
 ```
-<br>
+<img src="./exam04.png" width="600px" />
 
-
-### 
-
-```sql
-
-```
-<br>
-
-
-### 
-
-```sql
-
-```
 <br>
 
