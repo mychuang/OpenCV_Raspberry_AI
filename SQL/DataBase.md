@@ -1,4 +1,4 @@
-# Data Base Design Note
+# Database Design Note
 Refer: 
 - http://www.tsnien.idv.tw/DataBase_WebBook/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E9%82%8F%E8%BC%AF%E8%A8%AD%E8%A8%88.html
 - https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/

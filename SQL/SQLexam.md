@@ -1,4 +1,4 @@
-# SQL Beginner
+# SQL Quick Start
 Refer: https://allaboutdataanalysis.medium.com/%E9%9B%B6%E5%9F%BA%E7%A4%8E-sql-%E8%B3%87%E6%96%99%E5%BA%AB%E5%B0%8F%E7%99%BD-%E5%BE%9E%E5%85%A5%E9%96%80%E5%88%B0%E7%B2%BE%E9%80%9A%E7%9A%84%E5%AD%B8%E7%BF%92%E8%B7%AF%E7%B7%9A%E8%88%87%E6%9B%B8%E5%96%AE-d9918e64389f
 <p>
 
