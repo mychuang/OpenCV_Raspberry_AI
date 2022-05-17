@@ -91,3 +91,40 @@ B D C C C D D D B B
 
 ## 概念與指令介紹實作簡例（10題）
 A C B C A A D C B B
+
+## SQL 綜合考題
+1. 
+    ```sql
+    SELECT Subject.subject_id, Subject.subject_name, Subject.note, Teacher teacher__name, Groups.group__name FROM Subject 
+    LEFT JOIN Teacher ON Teacher teacher_id = Subject.teacher_id 
+    LEFT JOIN Groups ON Groups.group_id = Teacher.teacher_id
+    ```
+2.  
+    <ol type="A">
+    <li>列出所有主管姓名</li>
+
+    ```sql
+    SELECT s1.id, s1.name, s1.title, s1.sex, s1.slry, t1.name AS bossName 
+    FROM EET001 s1
+    INNER JOIN EET001 t1 ON t1.id = s1.b_id
+    ```
+
+    <li>列出各部門薪資總和，並依總和高低排名</li>
+    
+    ```sql
+    SELECT dpt, SUM(slry), RANK() OVER(
+    ORDER BY SUM(slry) DESC
+    ) FROM EET001
+    GROUP BY dpt
+    ORDER BY SUM(slry) DESC
+    ```
+
+    <li>列出薪資不足50000的員工</li>
+    
+    ```sql
+    SELECT name, title, slry FROM EET001
+    WHERE slry < 50000
+    ```
+
+
+    </ol>
