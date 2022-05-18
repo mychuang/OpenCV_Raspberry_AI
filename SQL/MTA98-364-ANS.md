@@ -92,13 +92,15 @@ B D C C C D D D B B
 ## 概念與指令介紹實作簡例（10題）
 A C B C A A D C B B
 
-## SQL 綜合考題
+## SQL 綜合考題 (10題)
 1. 
     ```sql
-    SELECT Subject.subject_id, Subject.subject_name, Subject.note, Teacher teacher__name, Groups.group__name FROM Subject 
+    SELECT Subject.subject_id, Subject.subject_name, Subject.note, Teacher.teacher__name, Groups.group__name FROM Subject 
     LEFT JOIN Teacher ON Teacher teacher_id = Subject.teacher_id 
     LEFT JOIN Groups ON Groups.group_id = Teacher.teacher_id
     ```
+<p>
+
 2.  
     <ol type="A">
     <li>列出所有主管姓名</li>
@@ -125,6 +127,92 @@ A C B C A A D C B B
     SELECT name, title, slry FROM EET001
     WHERE slry < 50000
     ```
-
-
     </ol>
+<p>
+
+3.  B -> C -> D -> E -> A -> F -> G 
+<p>
+
+4. 
+    ```sql
+    SELECT * FROM student WHERE name IN (
+        SELECT name FROM student WHERE name LIKE "張%"
+        GROUP BY name HAVING AVG(score) > 75
+    )
+    ```
+<p>
+
+5. 
+   <ol type="A">
+    <li>如果不考慮少錄入情況</li>
+    
+    ```sql
+       SELECT name FROM xuesheng
+       GROUP BY name 
+       HAVING min(score) > 80
+    ```
+
+    <li>如果考慮學生的課程數大於等於3的情況 </li>
+
+    ```sql
+       SELECT name FROM xuesheng
+       GROUP BY name 
+       HAVING min(score) > 80
+       AND COUNT(kecheng) >= 3
+    ```
+   </ol>
+<p>
+
+6. 
+    ```sql
+    DELETE FROM tablename WHERE 自動編號 NOT IN(
+        SELECT MIN(自動編號) FROM tablename
+        GROUP BY 學號, 姓名, 課程編號, 課程名稱, 分數
+    )
+    ```
+<p>
+
+7.
+    ```sql
+    SELECT t1.name, t2.name FROM team t1, team t2
+    WHERE t1.name < t2.name
+    ```
+    | name  | name |
+    | ----|----| 
+    |A  | B    | 
+    |A  | C    | 
+    |B  | C    | 
+    |A  | D    | 
+    |B  | D    |
+    |C  | D    |
+<p>
+
+8.  
+    ```sql
+    SELECT t2.years,
+    (SELECT t1.amount FROM tablename t1 WHERE t1.months = 1 AND t1.years = t2.years) m1,
+    (SELECT t1.amount FROM tablename t1 WHERE t1.months = 2 AND t1.years = t2.years) m2,
+    (SELECT t1.amount FROM tablename t1 WHERE t1.months = 3 AND t1.years = t2.years) m3,
+    (SELECT t1.amount FROM tablename t1 WHERE t1.months = 4 AND t1.years = t2.years) m4
+    FROM tablename t2
+    GROUP BY t2.years
+    ```
+<p>
+
+9.  <ol type="A">
+    <li>
+      
+      ```sql
+      CREATE TABLE newTable AS SELECT * FROM oldTable WHERE 1 = 2
+      ```
+    </li>
+    <li>
+
+      ```sql
+      CREATE TABLE newTable AS SELECT * FROM oldTable WHERE 1 = 2
+      INSERT INTO newTable SELECT * FROM oldTable;
+      ```
+    </li>
+   </ol>
+<p>
+
