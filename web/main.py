@@ -5,14 +5,16 @@ from flask import jsonify
 from flask_cors import CORS
 from flask import render_template, request, redirect, url_for, session
 
+#//Flask 類別 初始化時 傳入的 __name__ 參數，代表當前模組的名稱。是固定用法，以便讓 Flask 知道在哪裡尋找資源。
 app = Flask(__name__)
-CORS(app)
 
-@app.route('/')
+#裝飾器是告訴 Flask，哪個 URL 應該觸發我們的函式。
+#斜線代表的就是網站的根目錄，可以疊加。
+@app.route("/")
 def home():
-    return render_template("home.html")
+    #return "<html><body><h1>Hello World</h1></body></html>"
+    return render_template('home.html')
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000)
-
+    app.run()
 
