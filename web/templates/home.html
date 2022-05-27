@@ -10,29 +10,9 @@
   <title>賴田捕手</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-sm bg-light navbar-light">
-
-    <!-- 宣告一個可折疊的按鈕 -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- 導覽列 -->
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-      </ul>
-    </div>
-
-  </nav>
+ 
+  {% block main %}
+  
   <!--jumbotron 宣告我們將放入超大屏幕！-->
   <div class="jumbotron">
     <h1>Bootstrap Tutorial</h1>
@@ -41,17 +21,24 @@
 
   <!--Bootstrap：Grid System-->
   <div class="container">
-    <div class="row">
-      <div class="col-2 bg-light border rounded border-dark">先從第 1 欄寫到第 2 欄</div>
-      <div class="col-4 bg-light border rounded border-dark">再從第 3 欄寫到第 6 欄</div>
-      <div class="col-6 bg-light border rounded border-dark">然後從第 7 欄一直寫到最後</div>
-    </div>
-    <div class="row">
-      <div class="col bg-light border rounded border-dark">平均等分的第 1 塊</div>
-      <div class="col bg-light border rounded border-dark">平均等分的第 2 塊</div>
-      <div class="col bg-light border rounded border-dark">平均等分的第 3 塊</div>
+    <div class="row desc">
+      <div class="col">
+        <h2><i class="fas fa-kiwi-bird"></i>  輕鬆</h2>
+          <p>中間略</p>
+      </div>
+      <div class="col">
+        <h2><i class="fas fa-smile-wink"></i>  愉悅</h2>
+        <p>中間略</p>
+      </div>
+      <div class="col">
+        <h2><i class="fas fa-leaf"></i>  無害</h2>
+        <p>中間略</p>
+      </div>
     </div>
   </div>
+  {% endblock %}
+
+
 
 </body>
 </html>
