@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+
+{% if session['name'] %}
+    <div class="alert alert-success" role="alert">
+        歡迎 <span>{{ session['name'] }}</span> 的登入
+    </div>
+{% else %}
+    <div class="alert alert-warning" role="alert">
+        請先登入謝謝！！
+    </div>
+{% endif %}
+
+{% endblock %}
