@@ -26,18 +26,18 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link" href="/baseHome">主頁</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link" href="/login">登入</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link" href="#">註冊</a>
                 </li>
               </ul>
             </div>
         
-          </nav>
+        </nav>
     </nav>
   
   <main>
@@ -47,7 +47,10 @@
   
   <!-- 希望能固定出現在每個網頁的 footer -->
   <footer>
-    here is footer
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="https://github.com/mychuang">Github@mychuang</a>
+      </div>
   </footer>
   
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -57,3 +60,4 @@
   <!-- 可供更改的部分 -->
   {% block script %}{% endblock %}
   </body>
+  </html>

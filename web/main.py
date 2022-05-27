@@ -12,8 +12,15 @@ app = Flask(__name__)
 #斜線代表的就是網站的根目錄，可以疊加。
 @app.route("/")
 def home():
-    #return "<html><body><h1>Hello World</h1></body></html>"
     return render_template('home.html')
+
+@app.route("/login")
+def login_html():
+    return render_template("login.html")
+
+@app.route("/baseHome")
+def home_html():
+    return render_template("baseHome.html")
 
 if __name__ == '__main__':
     app.run()
