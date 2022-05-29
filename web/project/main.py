@@ -19,9 +19,10 @@ def home():
 @app.route("/login", methods=["GET", "POST"])
 def login_html():
     if request.method == 'POST':
-        email = request.form['email']
+        name = request.form['name']
         password = request.form['password'].encode('utf-8')
-        cursor.execute("SELECT * FROM users WHERE email=%s", [email])
+        sql = "SELECT * FROM users WHERE name="+"'"+name+"'"
+        cursor.execute(sql)
         user = cursor.fetchone()
         cursor.close()
 
@@ -37,5 +38,6 @@ def home_html():
     return render_template("baseHome.html")
 
 if __name__ == '__main__':
+    app.debug=True
     app.run(host='0.0.0.0', port=7777)
 
