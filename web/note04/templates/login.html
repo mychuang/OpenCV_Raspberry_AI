@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Page</title>
+</head>
+<body>
+    <!--當表單在Submit的時候，會依action='url'來傳遞資料到該路由-->
+    <!--action的部份以url_for('function name')設置，function name為該路由所裝飾器函數名稱-->
+    <form method='post' action={{ url_for('loginFunction') }}> 
+        <p>
+            <input type='text' name='username' />
+        </p>
+        <p>
+            <button type='submit'>Submit</button>
+        </p>    
+    </form>
+</body>
+</html>

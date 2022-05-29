@@ -3,6 +3,8 @@ Refer: https://hackmd.io/@shaoeChen/SyP4YEnef?type=view
 """
 
 from flask import Flask
+
+#Flask 類別 初始化時 傳入的 __name__ 參數，代表當前模組的名稱。是固定用法，以便讓 Flask 知道在哪裡尋找資源。
 app = Flask(__name__)
 
 # flask利用裝飾器@app.route來定義路由
