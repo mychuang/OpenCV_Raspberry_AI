@@ -19,9 +19,9 @@ def home():
 @app.route("/login", methods=["GET", "POST"])
 def login_html():
     if request.method == 'POST':
-        email = request.form['email']
+        name = request.form['name']
         password = request.form['password'].encode('utf-8')
-        cursor.execute("SELECT * FROM users WHERE email=%s", [email])
+        cursor.execute("SELECT * FROM users WHERE name='%s'", name)
         user = cursor.fetchone()
         cursor.close()
 
