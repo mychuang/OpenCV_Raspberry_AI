@@ -16,8 +16,6 @@ def home():
 
 @app.route("/login", methods=["GET", "POST"])
 def login_html():
-    if request.method == 'POST':
-
     return render_template("login.html")
 
 """
