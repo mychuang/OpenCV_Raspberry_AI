@@ -6,7 +6,6 @@ function showPosition(position) {
     var m = document.getElementById("msg");
 
     m.innerHTML = "日期: " + date.toISOString().split('T')[0];
-
 }
 
 //取得 經緯度
