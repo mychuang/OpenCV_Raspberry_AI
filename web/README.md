@@ -1,5 +1,6 @@
-# Flask quick note
+# Flask Project in RaspberryPi
 
+## Flask Beginner
 see the note folder as the following:
 1. 建立第一個app
 2. 透過url傳值&重導向
@@ -7,5 +8,10 @@ see the note folder as the following:
 4. POST
 5. POST & 重導向
 6. POST & AJAX 交互
-7. POST & AJAX 交互: 使用JS傳送經緯度給Server
-8. 
+
+## Samall Project
+1. Location: 使用JS傳送經緯度給Server
+
+    <img src="./figure/01.png" width="400px" /> <p>
+
+2. 
