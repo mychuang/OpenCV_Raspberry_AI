@@ -12,22 +12,47 @@
     </head>
     <body>
         <div class="form-group">
-            <button id="btn">get server data</button>
+            <button id="btn1">Set server data</button>
+        </div>
+        <div class="form-group">
+            <button id="btn2">Get server data</button>
+        </div>
+        <div class="form-group">
             <p id="msg"></p>
         </div>
         
         <script>
-            $('#btn').click(function(){
-                console.log("send");
-                
+            $('#btn1').click(function(){
+                console.log("set");
+                $.ajax({
+                    url: "/setRequest",
+                    type: "POST",
+                    dataType: "json",
+                    data: {'lon': '121.2', 'lat': '26.5'},
+                    success: function (data) {
+                        console.log(data.msg);
+                    }
+                })
+            })
+
+            $('#btn2').click(function(){
+                console.log("get");
                 $.ajax({
                     url: "/getRequest",
                     type: "POST",
                     dataType: "json",
                     success: function (data) {
-                        //console.log(data);
-                        var result = data.name + " is " + data.age;
-                        $("#msg").text(result);
+                        if(data.hasOwnProperty("msg")){
+                            console.log(data.msg);
+                            $("#msg").text(data.msg);
+                        }else if(data.hasOwnProperty("lat")){
+                            var result = data.lat + " ; " + data.lon;
+                            console.log(result);
+                            $("#msg").text(result);
+                        }else{
+                            console.log("error");
+                            $("#msg").text(error);
+                        }
                     }
                 })
             })
