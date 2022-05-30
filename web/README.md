@@ -7,5 +7,5 @@ see the note folder as the following:
 4. POST
 5. POST & 重導向
 6. POST & AJAX 交互
-7. 
+7. POST & AJAX 交互: 使用JS傳送經緯度給Server
 8. 
