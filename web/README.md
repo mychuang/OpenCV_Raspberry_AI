@@ -14,4 +14,6 @@ see the note folder as the following:
 
     <img src="./figure/01.png" width="400px" /> <p>
 
-2. 
+2. Login: 使用Session記憶登入資訊
+    
+    <img src="./figure/02.png" width="400px" /> <p>
