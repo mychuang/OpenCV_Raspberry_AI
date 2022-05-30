@@ -1,0 +1,57 @@
+<!-- 宣告我們要套用模板 -->
+{% extends "base.html" %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block main %}
+
+<!--Bootstrap：Grid System-->
+<div class="container">
+    <form action="#" method="post">
+        <div class="form-group">
+            <label for="username">Name:</label>
+            <input id="username" class="form-control" type="text" name="nm" />
+        </div>
+        <div class="form-group">
+            <button id="btn">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    function showPosition(position) {
+        let date = new Date();
+        
+        $.ajax({
+            url: "/",
+            type: "POST",
+            dataType: "json",
+            data: {
+                'user': $("#username").val(),
+                'lon': position.coords.longitude, 
+                'lat': position.coords.latitude,
+                'date': date.toISOString().split('T')[0]
+            },
+            success: function (data) {
+                console.log("server responce: ");
+            }
+        })
+    }
+
+    //取得 經緯度
+    function getLocation(){
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);//有拿到位置就呼叫 showPosition 函式
+        } else {
+            alert("您的瀏覽器不支援顯示地理位置 API ，請使用其它瀏覽器開啟這個網址");
+        }
+    }
+        
+    $("#btn").click(function(){
+        getLocation();
+    });
+</script>
+{% endblock %}
