@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <body>
+        <button onclick="getLocation()">取得您目前所在位置的經緯度</button>
+        <p id="msg"></p>
+        
+        <script>
+        var m = document.getElementById("msg");
+        function getLocation() {//取得 經緯度
+            if (navigator.geolocation) {//
+                navigator.geolocation.getCurrentPosition(showPosition);//有拿到位置就呼叫 showPosition 函式
+            } else {
+                m.innerHTML = "您的瀏覽器不支援 顯示地理位置 API ，請使用其它瀏覽器開啟 這個網址";
+            }
+        }
+        function showPosition(position) {
+            m.innerHTML = " 緯度 (Latitude): " + position.coords.latitude + "<br>經度 (Longitude): " + position.coords.longitude;
+            }
+        </script>
+</html>
