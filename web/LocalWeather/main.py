@@ -4,39 +4,54 @@ import WeatherData as wd
 from datetime import datetime
 
 app = Flask(__name__)
-data = {}
 
-# flask利用裝飾器@app.route來定義路由
 @app.route('/')
-# 當你連接到’/'的時候，路由就知道要執行後面的function了
 def login():
+    if "user" in session:
+        return redirect(url_for("home"))
+
     return render_template('login.html')
 
 @app.route('/setRequest', methods=['GET', 'POST'])
 def setData():
-    data['user'] = request.form.get('user')
-    data['lat'] = request.form.get('lat')
-    data['lon'] = request.form.get('lon')
-    data['date'] = request.form.get('date')
+    session["user"] = request.form.get('user')
+    session['lat'] = request.form.get('lat')
+    session['lon'] = request.form.get('lon')
+    session['date'] = request.form.get('date')
 
     # get weather
-    Times = data['date'].split('-', 2)
-    weatherObs = wd.obs.get(lat=float(data['lat']), lon=float(data['lon']),
+    Times = session['date'].split('-', 2)
+    try:
+        weatherObs = wd.obs.get(lat=float(session['lat']), lon=float(session['lon']),
                         dtime=datetime(int(Times[0]), int(Times[1]), int(Times[2])))
-    data['ws'] = weatherObs['ws']
-    data['tx'] = weatherObs['tx']
-    data['pres'] = weatherObs['pres']
-    data['precp_hour'] = weatherObs['precp_hour']
+        session['ws'] = weatherObs['ws']
+        session['tx'] = weatherObs['tx']
+        session['pres'] = weatherObs['pres']
+        session['precp_hour'] = weatherObs['precp_hour']
+    except:
+        session['ws'] = -999.9
+        session['tx'] = -999.9
+        session['pres'] = -999.9
+        session['precp_hour'] = -999.9
 
     return json.dumps({"msg": "success"})
 
 @app.route('/home')
-# 當你連接到’/'的時候，路由就知道要執行後面的function了
 def home():
-    return render_template('home.html',
-                           user_key=data['user'], lat_key=data['lat'], lon_key=data['lon'],
-                           ws_key=data['ws'], tx_key=data['tx'], pres_key=data['pres'], precp_key=data['precp_hour'])
+    global data
+    if 'user' in session.keys() and 'lat' in session.keys():
+            return render_template('home.html',
+                               user_key=session["user"], lat_key=session['lat'], lon_key=session['lon'],
+                               ws_key=session['ws'], tx_key=session['tx'], pres_key=session['pres'],
+                               precp_key=session['precp_hour'])
+    return render_template('login.html')
+
+@app.route("/logout")
+def logout():
+    session.pop("user", None)
+    return redirect(url_for("login"))
 
 if __name__ == '__main__':
     app.debug = True
+    app.secret_key = "#230dec61-fee8-4ef2-a791-36f9e680c9fc"
     app.run()
