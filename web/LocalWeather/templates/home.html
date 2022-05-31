@@ -1,0 +1,39 @@
+<!-- 宣告我們要套用模板 -->
+{% extends "base.html" %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block main %}
+
+<!--Bootstrap：Grid System-->
+<div class="container">
+    <div class="form-group">
+        {{ user_key }} 氣象觀測站
+    </div>
+    <div class="form-group">
+        <label for="lat">緯度:</label>
+        <input class="form-control" name="lat" id="lat" disabled value= {{ lat_key }}>
+    </div>
+    <div class="form-group">
+        <label for="lon">經度:</label>
+        <input class="form-control" name="lon" id="lon" disabled value= {{ lon_key }}>
+    </div>
+    <div class="form-group">
+        <label for="ws">風速:</label>
+        <input class="form-control" name="ws" id="ws" disabled value= {{ ws_key }}>
+    </div>
+    <div class="form-group">
+        <label for="tx">氣溫:</label>
+        <input class="form-control" name="tx" id="tx" disabled value= {{ tx_key }}>
+    </div>
+    <div class="form-group">
+        <label for="pres">氣壓:</label>
+        <input class="form-control" name="pres" id="pres" disabled value= {{ pres_key }}>
+    </div>
+    <div class="form-group">
+        <label for="precp">時雨量:</label>
+        <input class="form-control" name="precp" id="precp" disabled value= {{ precp_key }}>
+    </div>
+</div>
+
+{% endblock %}

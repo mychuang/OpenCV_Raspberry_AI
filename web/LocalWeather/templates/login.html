@@ -7,15 +7,13 @@
 
 <!--Bootstrap：Grid System-->
 <div class="container">
-    <form action="#" method="post">
-        <div class="form-group">
-            <label for="username">Name:</label>
-            <input id="username" class="form-control" type="text" name="nm" />
-        </div>
-        <div class="form-group">
-            <button id="btn">Submit</button>
-        </div>
-    </form>
+    <div class="form-group">
+        <label for="username">Name:</label>
+        <input id="username" class="form-control" type="text" name="nm" />
+    </div>
+    <div class="form-group">
+        <button id="btn">Submit</button>
+    </div>
 </div>
 
 {% endblock %}
@@ -24,9 +22,14 @@
 <script>
     function showPosition(position) {
         let date = new Date();
-        
+
+        console.log($("#username").val());
+        console.log(position.coords.latitude);
+        console.log(position.coords.longitude)
+        console.log(date.toISOString().split('T')[0])
+
         $.ajax({
-            url: "/",
+            url: "/setRequest",
             type: "POST",
             dataType: "json",
             data: {
@@ -36,22 +39,20 @@
                 'date': date.toISOString().split('T')[0]
             },
             success: function (data) {
-                console.log("server responce: ");
+                if(data.hasOwnProperty("msg")){
+                    console.log(data.msg);
+                    window.location.href = "/home"
+                }
             }
         })
     }
-
-    //取得 經緯度
-    function getLocation(){
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);//有拿到位置就呼叫 showPosition 函式
-        } else {
-            alert("您的瀏覽器不支援顯示地理位置 API ，請使用其它瀏覽器開啟這個網址");
-        }
-    }
         
     $("#btn").click(function(){
-        getLocation();
+        if (navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showPosition);//有拿到位置就呼叫 showPosition 函式
+        }else{
+            alert("您的瀏覽器不支援顯示地理位置 API ，請使用其它瀏覽器開啟這個網址");
+        }
     });
 </script>
 {% endblock %}
