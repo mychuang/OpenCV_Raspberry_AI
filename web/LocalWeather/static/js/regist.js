@@ -32,7 +32,24 @@ function valid(){
         console.log("error counts: ", error);
     }else{
         console.log("Ajax");
+        $.ajax({
+            url: "/setRegist",
+            type: "POST",
+            dataType: "json",
+            data: {
+                'pwd': pwd,
+                'user': name,
+                'email': email
+            },
+            success: function (data) {
+                if(data.hasOwnProperty("msg")){
+                    console.log(data.msg);
+                    window.location.href = "/"
+                }
+            }
+        })
     }
+
     error = 0;
 }
 
