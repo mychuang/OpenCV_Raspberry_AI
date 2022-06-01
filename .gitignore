@@ -5,3 +5,4 @@
 .idea/vcs.xml
 .idea/inspectionProfiles/profiles_settings.xml
 __pycache__/ui_mainwindow.cpython-38.pyc
+.idea/OpenCV_Raspberry_AI.iml
