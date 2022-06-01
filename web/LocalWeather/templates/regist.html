@@ -1,0 +1,30 @@
+<!-- 宣告我們要套用模板 -->
+{% extends "base.html" %}
+
+{% block title %}Register Page{% endblock %}
+
+{% block main %}
+<!--Bootstrap：Grid System-->
+<div class="container">
+    <div class="form-group">
+        <label for="username">帳號:</label>
+        <input id="username" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="password">密碼:</label>
+        <input id="password" type="password" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="email">信箱:</label>
+        <input id="email" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <button id="btn">註冊</button>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="static/js/regist.js"></script>
+{% endblock %}

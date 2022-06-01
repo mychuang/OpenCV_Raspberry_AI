@@ -61,6 +61,10 @@ def logout():
     session.pop("precp_hour", None)
     return redirect(url_for("login"))
 
+@app.route("/regist")
+def regist():
+    return render_template('regist.html')
+
 if __name__ == '__main__':
     app.debug = True
     app.secret_key = "#230dec61-fee8-4ef2-a791-36f9e680c9fc"
