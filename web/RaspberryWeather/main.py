@@ -107,6 +107,9 @@ def logout():
 
 @app.route("/regist")
 def regist():
+    if "user" in session:
+        return redirect(url_for("home"))
+
     return render_template('regist.html')
 
 @app.route("/setRegist", methods=['GET', 'POST'])

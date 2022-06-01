@@ -41,3 +41,11 @@ Yolotrainning 資料夾說明採用Yolo V4訓練Kaggle口罩資料的範例<p>
 - 延續 08-YoloCamera.py，新增GPIO模組
 - 偵測到人，樹梅派外接 led 燈會亮 <p>
 <img src="./09.png" width="300px" />
+
+## 10-web/raspberryWeather
+- 使用樹莓派4建置一個行動氣象站
+- 前端框架: html + css + javascript + jquery + bootstrap
+- 後端框架: python + flask
+- 資料庫: mysql
+
+   <img src="./web/figure/2.png" width="300px" />

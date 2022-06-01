@@ -17,3 +17,11 @@ see the note folder as the following:
 2. Login: 使用Session記憶登入資訊
     
     <img src="./figure/02.png" width="400px" /> <p>
+
+## Raspberry Weather
+
+<img src="./figure/1.png" width="400px" /> <p>
+
+<img src="./figure/2.png" width="400px" /> <p>
+
+<img src="./figure/3.png" width="400px" /> <p>
