@@ -14,21 +14,25 @@ def login():
 
 @app.route('/setRequest', methods=['GET', 'POST'])
 def setData():
+    session["pwd"] = request.form.get('pwd')
     session["user"] = request.form.get('user')
     session['lat'] = request.form.get('lat')
     session['lon'] = request.form.get('lon')
     session['date'] = request.form.get('date')
-
+    print(session['lat'])
+    print(session['lon'])
     # get weather
     Times = session['date'].split('-', 2)
     try:
         weatherObs = wd.obs.get(lat=float(session['lat']), lon=float(session['lon']),
                         dtime=datetime(int(Times[0]), int(Times[1]), int(Times[2])))
+        print("get temp ", weatherObs['tx'])
         session['ws'] = weatherObs['ws']
         session['tx'] = weatherObs['tx']
         session['pres'] = weatherObs['pres']
         session['precp_hour'] = weatherObs['precp_hour']
     except:
+        print("setData: error occures when get obs")
         session['ws'] = -999.9
         session['tx'] = -999.9
         session['pres'] = -999.9
@@ -40,7 +44,7 @@ def setData():
 def home():
     global data
     if 'user' in session.keys() and 'lat' in session.keys():
-            return render_template('home.html',
+        return render_template('home.html',
                                user_key=session["user"], lat_key=session['lat'], lon_key=session['lon'],
                                ws_key=session['ws'], tx_key=session['tx'], pres_key=session['pres'],
                                precp_key=session['precp_hour'])
@@ -49,6 +53,12 @@ def home():
 @app.route("/logout")
 def logout():
     session.pop("user", None)
+    session.pop("lat", None)
+    session.pop("lon", None)
+    session.pop("ws", None)
+    session.pop("tx", None)
+    session.pop("pres", None)
+    session.pop("precp_hour", None)
     return redirect(url_for("login"))
 
 if __name__ == '__main__':

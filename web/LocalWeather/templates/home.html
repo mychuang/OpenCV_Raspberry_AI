@@ -8,8 +8,8 @@
 <!--Bootstrap：Grid System-->
 <div class="container">
     <div class="form-group">
+        <img id="fig" src="#" width="50" height="50">
         <p> Welcom {{ user_key }}</p>
-        <p id="msg"></p>
     </div>
     <div class="form-group">
         <label for="lat">緯度:</label>
@@ -42,11 +42,10 @@
 {% block script %}
 <script>
     var m = document.getElementById("msg");
-    if($("#tx").val() > 25){
-        console.log("rain")
-        m.innerHTML = "天氣好熱~~";
+    if($("#precp").val() > 0.5){
+        document.getElementById('fig').src="static/images/rain.png";
     }else{
-        m.innerHTML = "天氣涼爽~~";
+        document.getElementById('fig').src="static/images/sun.png";
     }
     
 </script>
